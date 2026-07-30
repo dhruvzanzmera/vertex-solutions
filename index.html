@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vertex | Professional Software Engineering</title>
+    <!-- Clean, minimalist font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            /* Minimalist Monochrome Palette */
+            --bg: #000000;
+            --bg-secondary: #0a0a0a;
+            --bg-tertiary: #171717;
+            --text-main: #f5f5f5;
+            --text-muted: #888888;
+            --border: #222222;
+            --border-hover: #444444;
+            --accent: #ffffff;
+            --accent-muted: #cccccc;
+            --radius-lg: 16px;
+            --radius-md: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        ::selection {
+            background: var(--text-main);
+            color: var(--bg);
+        }
+
+        /* --- Typography --- */
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+            color: var(--text-main);
+        }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin-bottom: 4rem;
+            font-size: 1.1rem;
+            font-weight: 400;
+        }
+
+        section {
+            padding: 8rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid transparent;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            padding: 1rem 5%;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-main);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 24px;
+            height: 24px;
+            background: var(--text-main);
+            color: var(--bg);
+            border-radius: 4px;
+            display: grid;
+            place-items: center;
+            font-size: 0.8rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 0.9rem;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--text-main);
+        }
+
+        /* --- Buttons --- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.8rem;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .btn-primary {
+            background: var(--text-main);
+            color: var(--bg);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-muted);
+            transform: translateY(-1px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-main);
+            border: 1px solid var(--border);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--text-muted);
+            background: var(--bg-secondary);
+        }
+
+        /* --- Hero Section --- */
+        #home {
+            min-height: 90vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 4rem;
+            padding-top: 120px;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.4rem 1rem;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .hero-title {
+            font-size: 4.5rem;
+            font-weight: 700;
+            line-height: 1.05;
+            letter-spacing: -2px;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: fadeIn 1s ease 0.2s forwards;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 500px;
+            margin-bottom: 3rem;
+            line-height: 1.5;
+            opacity: 0;
+            animation: fadeIn 1s ease 0.4s forwards;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            opacity: 0;
+            animation: fadeIn 1s ease 0.6s forwards;
+        }
+
+        /* Vector Animations */
+        .hero-illustration {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            animation: fadeIn 1s ease 0.8s forwards;
+        }
+
+        .hero-illustration svg {
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .float-1 {
+            animation: floatY 4s ease-in-out infinite alternate;
+        }
+
+        .float-2 {
+            animation: floatY 5s ease-in-out infinite alternate-reverse;
+        }
+
+        .spinner {
+            animation: spin 6s linear infinite;
+            transform-origin: 90px 70px;
+        }
+
+        @keyframes floatY {
+            0% {
+                transform: translateY(0px);
+            }
+
+            100% {
+                transform: translateY(-15px);
+            }
+        }
+
+        @keyframes spin {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* --- Client Logos --- */
+        .clients {
+            padding: 4rem 5%;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            text-align: center;
+            background: var(--bg-secondary);
+        }
+
+        .logo-ticker {
+            display: flex;
+            gap: 4rem;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .company-logo {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .company-logo:hover {
+            color: var(--text-main);
+        }
+
+        /* --- About Grid --- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-content h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+
+        .about-content p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            border-top: 1px solid var(--border);
+            padding-top: 2rem;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 0.2rem;
+        }
+
+        .stat-item p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Animated Graph */
+        .about-image {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            height: 100%;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 3rem;
+        }
+
+        .animated-graph {
+            width: 100%;
+            height: 80%;
+            display: flex;
+            align-items: flex-end;
+            gap: 15px;
+            position: relative;
+            padding-bottom: 2px;
+            border-bottom: 2px solid var(--border-hover);
+        }
+
+        .bar {
+            flex: 1;
+            background: var(--border-hover);
+            border-radius: 4px 4px 0 0;
+            animation: growBar 3s ease-in-out infinite alternate;
+            transform-origin: bottom;
+        }
+
+        .bar:hover {
+            background: var(--text-main);
+        }
+
+        .bar-1 {
+            height: 30%;
+            animation-delay: 0s;
+        }
+
+        .bar-2 {
+            height: 60%;
+            animation-delay: 0.2s;
+            background: var(--text-muted);
+        }
+
+        .bar-3 {
+            height: 40%;
+            animation-delay: 0.4s;
+        }
+
+        .bar-4 {
+            height: 85%;
+            animation-delay: 0.6s;
+            background: var(--text-main);
+        }
+
+        .bar-5 {
+            height: 50%;
+            animation-delay: 0.8s;
+        }
+
+        .bar-6 {
+            height: 70%;
+            animation-delay: 1.0s;
+            background: var(--text-muted);
+        }
+
+        @keyframes growBar {
+            0% {
+                transform: scaleY(0.8);
+            }
+
+            100% {
+                transform: scaleY(1.1);
+            }
+        }
+
+        .line-graph-svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: visible;
+        }
+
+        .graph-path {
+            stroke-dasharray: 500;
+            stroke-dashoffset: 500;
+            animation: drawPath 4s ease-in-out forwards infinite alternate;
+        }
+
+        @keyframes drawPath {
+            0% {
+                stroke-dashoffset: 500;
+            }
+
+            100% {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        /* --- Clean Bento Grid for Services --- */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .bento-item {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            transition: border-color 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .bento-item:hover {
+            border-color: var(--border-hover);
+        }
+
+        .bento-item.large {
+            grid-column: span 2;
+        }
+
+        .service-icon {
+            font-size: 1.5rem;
+            color: var(--text-main);
+            margin-bottom: 1.5rem;
+        }
+
+        .bento-item h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.8rem;
+            font-weight: 500;
+        }
+
+        .bento-item p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            flex-grow: 1;
+        }
+
+        /* --- Team --- */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .team-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            text-align: left;
+            transition: border-color 0.3s;
+        }
+
+        .team-card:hover {
+            border-color: var(--border-hover);
+        }
+
+        .team-info h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+        }
+
+        .team-info p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .team-social {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .team-social a {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            transition: color 0.2s;
+        }
+
+        .team-social a:hover {
+            color: var(--text-main);
+        }
+
+        /* --- Careers --- */
+        .careers-container {
+            max-width: 800px;
+        }
+
+        .job-card {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            margin-bottom: 1rem;
+            transition: background 0.2s, border-color 0.2s;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .job-card:hover {
+            background: var(--bg-tertiary);
+            border-color: var(--border-hover);
+        }
+
+        .job-info h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .job-meta {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .job-arrow {
+            color: var(--text-muted);
+            transition: transform 0.2s;
+        }
+
+        .job-card:hover .job-arrow {
+            transform: translateX(4px);
+            color: var(--text-main);
+        }
+
+        /* --- Footer --- */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 4rem 5% 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-main);
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            #home {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content {
+                align-items: center;
+            }
+
+            .hero-title {
+                font-size: 4rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .bento-item.large {
+                grid-column: span 1;
+            }
+
+            .bento-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 5%;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .job-card {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .job-arrow {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav id="navbar">
+        <a href="#home" class="logo">
+            <div class="logo-icon"><i class="fa-solid fa-code"></i></div>
+            Vertex
+        </a>
+        <div class="nav-links">
+            <a href="#home" class="active">Overview</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#team">Team</a>
+            <a href="#careers">Careers</a>
+        </div>
+        <a href="mailto:contact@vertex.io" class="btn btn-outline"
+            style="padding: 0.5rem 1rem; font-size: 0.85rem;">Contact Us</a>
+    </nav>
+
+    <section id="home">
+        <div class="hero-content">
+            <div class="badge">Vertex Engineering • Enterprise Software</div>
+            <h1 class="hero-title">Precision software<br>for modern business.</h1>
+            <p class="hero-subtitle">We design and build robust, scalable applications with clean code and
+                uncompromising attention to detail.</p>
+            <div class="hero-buttons">
+                <a href="#services" class="btn btn-primary">View Services</a>
+                <a href="#about" class="btn btn-outline">Read Our Story</a>
+            </div>
+        </div>
+        <div class="hero-illustration">
+            <!-- Sleek SVG Vector Illustration -->
+            <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Desk -->
+                <path d="M60 260 H340" stroke="var(--border-hover)" stroke-width="4" stroke-linecap="round" />
+                <!-- Laptop Base & Screen -->
+                <rect x="180" y="220" width="60" height="38" rx="4" fill="var(--bg-secondary)"
+                    stroke="var(--border-hover)" stroke-width="3" />
+                <path d="M160 260 L260 260" stroke="var(--text-muted)" stroke-width="6" stroke-linecap="round" />
+                <!-- Person Head -->
+                <circle cx="120" cy="150" r="25" fill="var(--bg)" stroke="var(--text-main)" stroke-width="4" />
+                <!-- Person Body -->
+                <path d="M100 190 Q120 170 140 190 L140 260 H100 Z" fill="var(--bg-tertiary)" stroke="var(--text-main)"
+                    stroke-width="3" />
+                <!-- Person Arm to Laptop -->
+                <path d="M130 200 Q160 220 180 240" fill="none" stroke="var(--text-muted)" stroke-width="8"
+                    stroke-linecap="round" />
+
+                <!-- Floating Graph UI elements -->
+                <!-- UI Box 1 -->
+                <rect x="250" y="90" width="100" height="80" rx="8" fill="var(--bg-secondary)"
+                    stroke="var(--border-hover)" stroke-width="2" class="float-1" />
+                <path d="M260 150 L280 120 L300 130 L330 100" fill="none" stroke="var(--text-main)" stroke-width="3"
+                    stroke-linecap="round" stroke-linejoin="round" class="float-1" />
+                <circle cx="330" cy="100" r="4" fill="var(--text-main)" class="float-1" />
+
+                <!-- UI Box 2 -->
+                <rect x="50" y="50" width="80" height="60" rx="8" fill="var(--bg-secondary)"
+                    stroke="var(--border-hover)" stroke-width="2" class="float-2" />
+                <circle cx="90" cy="80" r="15" fill="none" stroke="var(--text-muted)" stroke-width="4"
+                    stroke-dasharray="60" stroke-dashoffset="20" class="float-2 spinner" />
+
+                <!-- Connective lines in background -->
+                <path d="M120 100 L250 130" stroke="var(--border)" stroke-width="2" stroke-dasharray="5 5"
+                    style="z-index:-1" />
+            </svg>
+        </div>
+    </section>
+
+    <div class="clients">
+        <div class="logo-ticker">
+            <div class="company-logo"><i class="fa-brands fa-aws"></i> Amazon Web Services</div>
+            <div class="company-logo"><i class="fa-brands fa-stripe"></i> Stripe</div>
+            <div class="company-logo"><i class="fa-brands fa-github"></i> GitHub</div>
+            <div class="company-logo"><i class="fa-brands fa-figma"></i> Figma</div>
+        </div>
+    </div>
+
+    <section id="about" class="reveal">
+        <div class="about-grid">
+            <div class="about-content">
+                <h2>Engineering excellence.</h2>
+                <p>We are a boutique software agency focused on quality over quantity. Our team of senior engineers
+                    leverages industry-standard technologies to deliver maintainable, high-performance systems.</p>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h3>99.9%</h3>
+                        <p>Uptime guarantee</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>50ms</h3>
+                        <p>Global edge latency</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>100%</h3>
+                        <p>Test coverage standards</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>24/7</h3>
+                        <p>Monitoring & support</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-image">
+                <!-- Pure CSS Animated Graph -->
+                <div class="animated-graph">
+                    <div class="bar bar-1"></div>
+                    <div class="bar bar-2"></div>
+                    <div class="bar bar-3"></div>
+                    <div class="bar bar-4"></div>
+                    <div class="bar bar-5"></div>
+                    <div class="bar bar-6"></div>
+
+                    <svg class="line-graph-svg" preserveAspectRatio="none" viewBox="0 0 100 100">
+                        <!-- Curved line overlaying the bars -->
+                        <path d="M0 60 Q 20 20, 50 50 T 100 10" fill="none" stroke="var(--text-main)" stroke-width="2"
+                            class="graph-path" stroke-linecap="round" />
+                        <!-- Points on the line -->
+                        <circle cx="50" cy="50" r="2" fill="var(--text-main)" />
+                        <circle cx="100" cy="10" r="2" fill="var(--text-main)" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <h2 class="section-title reveal">Capabilities</h2>
+        <p class="section-subtitle reveal">Focused expertise in core engineering disciplines.</p>
+
+        <div class="bento-grid">
+            <div class="bento-item large reveal">
+                <div class="service-icon"><i class="fa-solid fa-server"></i></div>
+                <h3>Cloud Infrastructure</h3>
+                <p>Resilient, highly available systems deployed on AWS and GCP. We utilize Terraform for infrastructure
+                    as code, ensuring reproducible and secure environments.</p>
+            </div>
+
+            <div class="bento-item reveal">
+                <div class="service-icon"><i class="fa-solid fa-layer-group"></i></div>
+                <h3>Web Applications</h3>
+                <p>High-performance frontend architecture using React, Next.js, and strict TypeScript patterns.</p>
+            </div>
+
+            <div class="bento-item reveal">
+                <div class="service-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+                <h3>Mobile Development</h3>
+                <p>Cross-platform mobile engineering utilizing React Native for fluid, native-like experiences.</p>
+            </div>
+
+            <div class="bento-item large reveal">
+                <div class="service-icon"><i class="fa-solid fa-database"></i></div>
+                <h3>Data & Backend Systems</h3>
+                <p>Scalable APIs built with Node.js and Go. Complex database architecture across PostgreSQL and
+                    distributed NoSQL systems designed for high throughput.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="team">
+        <h2 class="section-title reveal">Leadership</h2>
+        <p class="section-subtitle reveal">Built by engineers, for engineers.</p>
+
+        <div class="team-grid">
+            <div class="team-card reveal">
+                <div class="team-info">
+                    <h3>Sarah Jenkins</h3>
+                    <p>Founder & CEO</p>
+                    <div class="team-social">
+                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="team-card reveal">
+                <div class="team-info">
+                    <h3>David Chen</h3>
+                    <p>Chief Technology Officer</p>
+                    <div class="team-social">
+                        <a href="#"><i class="fa-brands fa-github"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="team-card reveal">
+                <div class="team-info">
+                    <h3>Elena Rostova</h3>
+                    <p>Head of Product</p>
+                    <div class="team-social">
+                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="careers">
+        <h2 class="section-title reveal">Join Us</h2>
+        <p class="section-subtitle reveal">We are looking for exceptional engineers.</p>
+
+        <div class="careers-container">
+            <a href="#" class="job-card reveal">
+                <div class="job-info">
+                    <h3>Senior Backend Engineer</h3>
+                    <div class="job-meta">Go • PostgreSQL • Distributed Systems</div>
+                </div>
+                <div class="job-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+            </a>
+
+            <a href="#" class="job-card reveal">
+                <div class="job-info">
+                    <h3>Frontend Architect</h3>
+                    <div class="job-meta">React • TypeScript • Performance</div>
+                </div>
+                <div class="job-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <a href="#home" class="logo" style="margin-bottom: 1.5rem;">
+                    <div class="logo-icon"><i class="fa-solid fa-code"></i></div>
+                    Vertex
+                </a>
+                <p style="color: var(--text-muted); font-size: 0.9rem; max-width: 250px;">
+                    Precision software engineering for modern enterprises.
+                </p>
+            </div>
+
+            <div>
+                <h4 class="footer-title">Company</h4>
+                <div class="footer-links">
+                    <a href="#about">About</a>
+                    <a href="#services">Services</a>
+                    <a href="#team">Team</a>
+                    <a href="#careers">Careers</a>
+                </div>
+            </div>
+
+            <div>
+                <h4 class="footer-title">Connect</h4>
+                <div class="footer-links">
+                    <a href="#">Twitter</a>
+                    <a href="#">GitHub</a>
+                    <a href="#">LinkedIn</a>
+                    <a href="#">Contact</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Vertex Engineering.</p>
+            <div style="display: flex; gap: 1.5rem;">
+                <a href="#" style="color: var(--text-muted); text-decoration: none;">Privacy</a>
+                <a href="#" style="color: var(--text-muted); text-decoration: none;">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar Scrolled State
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll Spy
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '-30% 0px -70% 0px',
+            threshold: 0
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    if (id) {
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === `#${id}`) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => observer.observe(section));
+
+        // Subtle Reveal Animations
+        const reveals = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: "0px 0px -20px 0px" });
+
+        reveals.forEach(reveal => revealObserver.observe(reveal));
+    </script>
+</body>
+
+</html>
