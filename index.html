@@ -4,40 +4,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vertex | Professional Software Engineering</title>
-    <!-- Clean, minimalist font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Icons -->
+    <title>Vertex | Precision Software Engineering</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            /* Minimalist Monochrome Palette */
-            --bg: #000000;
-            --bg-secondary: #0a0a0a;
-            --bg-tertiary: #171717;
-            --text-main: #f5f5f5;
-            --text-muted: #888888;
-            --border: #222222;
-            --border-hover: #444444;
-            --accent: #ffffff;
-            --accent-muted: #cccccc;
-            --radius-lg: 16px;
-            --radius-md: 8px;
+            /* Ink & signal palette — cool graphite ground, indigo + teal signal colors
+               standing in for the "edges" that connect a vertex graph. */
+            --bg: #08090d;
+            --bg-secondary: #0e1016;
+            --bg-tertiary: #14161f;
+            --text-main: #f3f4f7;
+            --text-muted: #888ea1;
+            --text-faint: #565b6c;
+            --border: #1d2029;
+            --border-hover: #30354a;
+            --accent: #6c7bff;
+            --accent-soft: rgba(108, 123, 255, 0.12);
+            --accent-2: #35d0a0;
+            --accent-2-soft: rgba(53, 208, 160, 0.12);
+            --radius-lg: 20px;
+            --radius-md: 12px;
+            --radius-sm: 8px;
+            --font-display: 'Space Grotesk', 'Inter', sans-serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: var(--font-body);
         }
 
         html {
             scroll-behavior: smooth;
         }
 
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+            *, *::before, *::after {
+                animation-duration: 0.001ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.001ms !important;
+            }
+        }
+
         body {
             background-color: var(--bg);
+            background-image:
+                radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.05) 1px, transparent 0);
+            background-size: 32px 32px;
             color: var(--text-main);
             line-height: 1.6;
             overflow-x: hidden;
@@ -46,16 +67,45 @@
         }
 
         ::selection {
-            background: var(--text-main);
-            color: var(--bg);
+            background: var(--accent);
+            color: #08090d;
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 3px;
+            border-radius: 4px;
         }
 
         /* --- Typography --- */
+        .eyebrow {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent-2);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .eyebrow::before {
+            content: '';
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--accent-2);
+            box-shadow: 0 0 10px var(--accent-2);
+        }
+
         .section-title {
-            font-size: 2.5rem;
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 3.5vw, 2.75rem);
             font-weight: 600;
             margin-bottom: 1rem;
-            letter-spacing: -1px;
+            letter-spacing: -0.5px;
             color: var(--text-main);
         }
 
@@ -63,7 +113,7 @@
             color: var(--text-muted);
             max-width: 600px;
             margin-bottom: 4rem;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             font-weight: 400;
         }
 
@@ -71,6 +121,7 @@
             padding: 8rem 5%;
             max-width: 1400px;
             margin: 0 auto;
+            position: relative;
         }
 
         /* --- Navigation --- */
@@ -82,9 +133,9 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            background: rgba(8, 9, 13, 0.7);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
             border-bottom: 1px solid transparent;
             z-index: 1000;
             transition: all 0.3s ease;
@@ -96,44 +147,84 @@
         }
 
         .logo {
-            font-size: 1.25rem;
+            font-family: var(--font-display);
+            font-size: 1.2rem;
             font-weight: 700;
-            letter-spacing: -0.5px;
+            letter-spacing: -0.3px;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.7rem;
             color: var(--text-main);
             text-decoration: none;
         }
 
         .logo-icon {
-            width: 24px;
-            height: 24px;
-            background: var(--text-main);
-            color: var(--bg);
-            border-radius: 4px;
+            width: 30px;
+            height: 30px;
+            border-radius: 8px;
             display: grid;
             place-items: center;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
+            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            color: #08090d;
         }
 
         .nav-links {
             display: flex;
-            gap: 2.5rem;
+            gap: 2.4rem;
             align-items: center;
         }
 
         .nav-links a {
+            position: relative;
             color: var(--text-muted);
             text-decoration: none;
-            font-weight: 400;
+            font-weight: 500;
             font-size: 0.9rem;
             transition: color 0.2s ease;
+            padding: 0.3rem 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 0;
+            height: 1.5px;
+            background: var(--accent);
+            transition: width 0.25s ease;
         }
 
         .nav-links a:hover,
         .nav-links a.active {
             color: var(--text-main);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 6px;
+        }
+
+        .nav-toggle span {
+            width: 22px;
+            height: 2px;
+            background: var(--text-main);
+            transition: all 0.25s ease;
+        }
+
+        .mobile-panel {
+            display: none;
         }
 
         /* --- Buttons --- */
@@ -142,8 +233,8 @@
             align-items: center;
             justify-content: center;
             gap: 0.5rem;
-            padding: 0.8rem 1.8rem;
-            border-radius: 6px;
+            padding: 0.85rem 1.8rem;
+            border-radius: var(--radius-sm);
             font-weight: 500;
             font-size: 0.95rem;
             text-decoration: none;
@@ -153,34 +244,37 @@
         }
 
         .btn-primary {
-            background: var(--text-main);
-            color: var(--bg);
+            background: var(--accent);
+            color: #08090d;
+            box-shadow: 0 0 0 0 rgba(108, 123, 255, 0.5);
         }
 
         .btn-primary:hover {
-            background: var(--accent-muted);
-            transform: translateY(-1px);
+            background: #7d8bff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px -8px rgba(108, 123, 255, 0.6);
         }
 
         .btn-outline {
             background: transparent;
             color: var(--text-main);
-            border: 1px solid var(--border);
+            border: 1px solid var(--border-hover);
         }
 
         .btn-outline:hover {
-            border-color: var(--text-muted);
-            background: var(--bg-secondary);
+            border-color: var(--accent);
+            background: var(--accent-soft);
+            transform: translateY(-2px);
         }
 
         /* --- Hero Section --- */
         #home {
-            min-height: 90vh;
+            min-height: 92vh;
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1.05fr 0.95fr;
             align-items: center;
-            gap: 4rem;
-            padding-top: 120px;
+            gap: 3rem;
+            padding-top: 130px;
         }
 
         .hero-content {
@@ -189,117 +283,167 @@
             align-items: flex-start;
         }
 
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            padding: 0.4rem 1rem;
-            background: var(--bg-tertiary);
-            border: 1px solid var(--border);
-            border-radius: 50px;
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            font-weight: 500;
-            margin-bottom: 2rem;
-            opacity: 0;
-            animation: fadeIn 1s ease forwards;
-        }
-
         .hero-title {
-            font-size: 4.5rem;
+            font-family: var(--font-display);
+            font-size: clamp(2.6rem, 5vw, 4.4rem);
             font-weight: 700;
             line-height: 1.05;
-            letter-spacing: -2px;
+            letter-spacing: -1.5px;
             margin-bottom: 1.5rem;
             opacity: 0;
-            animation: fadeIn 1s ease 0.2s forwards;
+            animation: fadeIn 0.9s ease 0.15s forwards;
+        }
+
+        .hero-title .accent-word {
+            background: linear-gradient(100deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
 
         .hero-subtitle {
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             color: var(--text-muted);
-            max-width: 500px;
-            margin-bottom: 3rem;
-            line-height: 1.5;
+            max-width: 480px;
+            margin-bottom: 2.75rem;
+            line-height: 1.6;
             opacity: 0;
-            animation: fadeIn 1s ease 0.4s forwards;
+            animation: fadeIn 0.9s ease 0.3s forwards;
         }
 
         .hero-buttons {
             display: flex;
             gap: 1rem;
+            margin-bottom: 3rem;
             opacity: 0;
-            animation: fadeIn 1s ease 0.6s forwards;
+            animation: fadeIn 0.9s ease 0.45s forwards;
         }
 
-        /* Vector Animations */
-        .hero-illustration {
+        .hero-meta {
+            display: flex;
+            gap: 2.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            width: 100%;
+            max-width: 480px;
+            opacity: 0;
+            animation: fadeIn 0.9s ease 0.6s forwards;
+        }
+
+        .hero-meta div span {
+            display: block;
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .hero-meta div small {
+            font-size: 0.8rem;
+            color: var(--text-faint);
+        }
+
+        /* --- Vertex graph signature illustration --- */
+        .graph-wrap {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            max-width: 520px;
+            margin: 0 auto;
+            opacity: 0;
+            animation: fadeIn 1.1s ease 0.5s forwards;
+        }
+
+        .graph-wrap svg {
             width: 100%;
             height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            animation: fadeIn 1s ease 0.8s forwards;
+            overflow: visible;
         }
 
-        .hero-illustration svg {
-            width: 100%;
-            max-width: 500px;
+        .edge {
+            stroke: url(#edgeGradient);
+            stroke-width: 1.4;
+            fill: none;
+            stroke-dasharray: 6 260;
+            animation: travel 6s linear infinite;
+            opacity: 0.85;
         }
 
-        .float-1 {
-            animation: floatY 4s ease-in-out infinite alternate;
+        .edge-static {
+            stroke: var(--border-hover);
+            stroke-width: 1;
+            fill: none;
+            opacity: 0.6;
         }
 
-        .float-2 {
-            animation: floatY 5s ease-in-out infinite alternate-reverse;
-        }
-
-        .spinner {
-            animation: spin 6s linear infinite;
-            transform-origin: 90px 70px;
-        }
-
-        @keyframes floatY {
-            0% {
-                transform: translateY(0px);
-            }
-
-            100% {
-                transform: translateY(-15px);
+        @keyframes travel {
+            to {
+                stroke-dashoffset: -266;
             }
         }
 
-        @keyframes spin {
-            100% {
-                transform: rotate(360deg);
-            }
+        .node {
+            fill: var(--bg-tertiary);
+            stroke: var(--border-hover);
+            stroke-width: 1.4;
+            transition: transform 0.2s ease;
         }
 
-        /* --- Client Logos --- */
+        .node-core {
+            fill: var(--accent);
+            filter: drop-shadow(0 0 8px rgba(108, 123, 255, 0.7));
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .node-core.alt {
+            fill: var(--accent-2);
+            filter: drop-shadow(0 0 8px rgba(53, 208, 160, 0.7));
+            animation-delay: 1.2s;
+        }
+
+        @keyframes pulse {
+            0%, 100% { r: 5; opacity: 1; }
+            50% { r: 7; opacity: 0.75; }
+        }
+
+        /* --- Client strip --- */
         .clients {
-            padding: 4rem 5%;
+            padding: 3.5rem 5%;
             border-top: 1px solid var(--border);
             border-bottom: 1px solid var(--border);
-            text-align: center;
             background: var(--bg-secondary);
+            overflow: hidden;
         }
 
-        .logo-ticker {
+        .clients-label {
+            text-align: center;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-faint);
+            margin-bottom: 2rem;
+        }
+
+        .ticker-track {
             display: flex;
-            gap: 4rem;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
+            width: max-content;
+            gap: 5rem;
+            animation: scrollTicker 26s linear infinite;
+        }
+
+        @keyframes scrollTicker {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
         }
 
         .company-logo {
-            font-size: 1.2rem;
+            font-size: 1.05rem;
             font-weight: 600;
-            color: var(--text-muted);
+            color: var(--text-faint);
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.6rem;
+            white-space: nowrap;
             transition: color 0.3s;
         }
 
@@ -316,15 +460,16 @@
         }
 
         .about-content h2 {
-            font-size: 2.5rem;
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 3.5vw, 2.6rem);
             font-weight: 600;
             margin-bottom: 1.5rem;
-            letter-spacing: -1px;
+            letter-spacing: -0.5px;
         }
 
         .about-content p {
             color: var(--text-muted);
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             margin-bottom: 2.5rem;
         }
 
@@ -337,125 +482,102 @@
         }
 
         .stat-item h3 {
-            font-size: 2.5rem;
+            font-family: var(--font-display);
+            font-size: 2.2rem;
             font-weight: 600;
             color: var(--text-main);
             margin-bottom: 0.2rem;
         }
 
         .stat-item p {
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             color: var(--text-muted);
         }
 
-        /* Animated Graph */
+        /* --- About visual: orbiting nodes --- */
         .about-image {
             background: var(--bg-tertiary);
             border: 1px solid var(--border);
             border-radius: var(--radius-lg);
             height: 100%;
-            min-height: 400px;
+            min-height: 420px;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
             overflow: hidden;
-            padding: 3rem;
         }
 
-        .animated-graph {
-            width: 100%;
-            height: 80%;
-            display: flex;
-            align-items: flex-end;
-            gap: 15px;
-            position: relative;
-            padding-bottom: 2px;
-            border-bottom: 2px solid var(--border-hover);
-        }
-
-        .bar {
-            flex: 1;
-            background: var(--border-hover);
-            border-radius: 4px 4px 0 0;
-            animation: growBar 3s ease-in-out infinite alternate;
-            transform-origin: bottom;
-        }
-
-        .bar:hover {
-            background: var(--text-main);
-        }
-
-        .bar-1 {
-            height: 30%;
-            animation-delay: 0s;
-        }
-
-        .bar-2 {
-            height: 60%;
-            animation-delay: 0.2s;
-            background: var(--text-muted);
-        }
-
-        .bar-3 {
-            height: 40%;
-            animation-delay: 0.4s;
-        }
-
-        .bar-4 {
-            height: 85%;
-            animation-delay: 0.6s;
-            background: var(--text-main);
-        }
-
-        .bar-5 {
-            height: 50%;
-            animation-delay: 0.8s;
-        }
-
-        .bar-6 {
-            height: 70%;
-            animation-delay: 1.0s;
-            background: var(--text-muted);
-        }
-
-        @keyframes growBar {
-            0% {
-                transform: scaleY(0.8);
-            }
-
-            100% {
-                transform: scaleY(1.1);
-            }
-        }
-
-        .line-graph-svg {
+        .about-image::before {
+            content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            overflow: visible;
+            inset: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(108, 123, 255, 0.08), transparent 65%);
         }
 
-        .graph-path {
-            stroke-dasharray: 500;
-            stroke-dashoffset: 500;
-            animation: drawPath 4s ease-in-out forwards infinite alternate;
+        .orbit-system {
+            position: relative;
+            width: 260px;
+            height: 260px;
         }
 
-        @keyframes drawPath {
-            0% {
-                stroke-dashoffset: 500;
-            }
-
-            100% {
-                stroke-dashoffset: 0;
-            }
+        .orbit-ring {
+            position: absolute;
+            inset: 0;
+            border: 1px solid var(--border-hover);
+            border-radius: 50%;
         }
 
-        /* --- Clean Bento Grid for Services --- */
+        .orbit-ring.r2 {
+            inset: 40px;
+        }
+
+        .orbit-ring.r3 {
+            inset: 80px;
+        }
+
+        .orbit-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--text-main);
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 24px rgba(243, 244, 247, 0.5);
+        }
+
+        .orbiter {
+            position: absolute;
+            inset: 0;
+            animation: spin linear infinite;
+        }
+
+        .orbiter span {
+            position: absolute;
+            top: -5px;
+            left: 50%;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            transform: translateX(-50%);
+        }
+
+        .orbiter.o1 { animation-duration: 9s; }
+        .orbiter.o1 span { background: var(--accent); box-shadow: 0 0 10px var(--accent); }
+
+        .orbiter.o2 { inset: 40px; animation-duration: 14s; animation-direction: reverse; }
+        .orbiter.o2 span { background: var(--accent-2); box-shadow: 0 0 10px var(--accent-2); }
+
+        .orbiter.o3 { inset: 80px; animation-duration: 6s; }
+        .orbiter.o3 span { background: var(--text-muted); }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* --- Bento Grid for Services --- */
         .bento-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -467,13 +589,30 @@
             border: 1px solid var(--border);
             border-radius: var(--radius-lg);
             padding: 2.5rem;
-            transition: border-color 0.3s;
+            transition: border-color 0.3s, transform 0.3s;
             display: flex;
             flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bento-item::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
         }
 
         .bento-item:hover {
             border-color: var(--border-hover);
+            transform: translateY(-3px);
+        }
+
+        .bento-item:hover::before {
+            opacity: 1;
         }
 
         .bento-item.large {
@@ -481,15 +620,22 @@
         }
 
         .service-icon {
-            font-size: 1.5rem;
-            color: var(--text-main);
-            margin-bottom: 1.5rem;
+            width: 46px;
+            height: 46px;
+            border-radius: var(--radius-sm);
+            display: grid;
+            place-items: center;
+            font-size: 1.2rem;
+            color: var(--accent);
+            background: var(--accent-soft);
+            margin-bottom: 1.75rem;
         }
 
         .bento-item h3 {
-            font-size: 1.25rem;
+            font-family: var(--font-display);
+            font-size: 1.2rem;
             margin-bottom: 0.8rem;
-            font-weight: 500;
+            font-weight: 600;
         }
 
         .bento-item p {
@@ -508,41 +654,69 @@
         .team-card {
             background: var(--bg-secondary);
             border: 1px solid var(--border);
-            border-radius: var(--radius-md);
+            border-radius: var(--radius-lg);
             padding: 2rem;
-            text-align: left;
-            transition: border-color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            transition: border-color 0.3s, transform 0.3s;
         }
 
         .team-card:hover {
             border-color: var(--border-hover);
+            transform: translateY(-3px);
+        }
+
+        .avatar-ring {
+            width: 58px;
+            height: 58px;
+            min-width: 58px;
+            border-radius: 50%;
+            padding: 2px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            display: grid;
+            place-items: center;
+        }
+
+        .avatar-ring span {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: var(--bg-tertiary);
+            display: grid;
+            place-items: center;
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--text-main);
         }
 
         .team-info h3 {
-            font-size: 1.1rem;
+            font-family: var(--font-display);
+            font-size: 1.05rem;
             font-weight: 600;
-            margin-bottom: 0.2rem;
+            margin-bottom: 0.15rem;
         }
 
         .team-info p {
             color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-bottom: 1.5rem;
+            font-size: 0.88rem;
+            margin-bottom: 0.6rem;
         }
 
         .team-social {
             display: flex;
-            gap: 1rem;
+            gap: 0.9rem;
         }
 
         .team-social a {
-            color: var(--text-muted);
-            font-size: 1.1rem;
+            color: var(--text-faint);
+            font-size: 1rem;
             transition: color 0.2s;
         }
 
         .team-social a:hover {
-            color: var(--text-main);
+            color: var(--accent);
         }
 
         /* --- Careers --- */
@@ -554,40 +728,50 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 2rem;
+            padding: 1.75rem 2rem;
             background: var(--bg-secondary);
             border: 1px solid var(--border);
             border-radius: var(--radius-md);
             margin-bottom: 1rem;
-            transition: background 0.2s, border-color 0.2s;
+            transition: background 0.2s, border-color 0.2s, transform 0.2s;
             text-decoration: none;
             color: inherit;
         }
 
         .job-card:hover {
             background: var(--bg-tertiary);
-            border-color: var(--border-hover);
+            border-color: var(--accent);
+            transform: translateX(4px);
         }
 
         .job-info h3 {
-            font-size: 1.2rem;
-            font-weight: 500;
-            margin-bottom: 0.5rem;
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
         }
 
         .job-meta {
+            font-family: var(--font-mono);
             color: var(--text-muted);
-            font-size: 0.9rem;
+            font-size: 0.82rem;
         }
 
         .job-arrow {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
             color: var(--text-muted);
-            transition: transform 0.2s;
+            border: 1px solid var(--border-hover);
+            transition: transform 0.2s, color 0.2s, border-color 0.2s;
         }
 
         .job-card:hover .job-arrow {
             transform: translateX(4px);
-            color: var(--text-main);
+            color: var(--accent);
+            border-color: var(--accent);
         }
 
         /* --- Footer --- */
@@ -606,9 +790,12 @@
         }
 
         .footer-title {
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--text-main);
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-weight: 500;
+            color: var(--text-faint);
             margin-bottom: 1.5rem;
         }
 
@@ -621,12 +808,12 @@
         .footer-links a {
             color: var(--text-muted);
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.92rem;
             transition: color 0.2s;
         }
 
         .footer-links a:hover {
-            color: var(--text-main);
+            color: var(--accent);
         }
 
         .footer-bottom {
@@ -635,27 +822,20 @@
             align-items: center;
             padding-top: 2rem;
             border-top: 1px solid var(--border);
-            color: var(--text-muted);
+            color: var(--text-faint);
             font-size: 0.85rem;
         }
 
         /* Animations */
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .reveal {
             opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s ease-out;
+            transform: translateY(24px);
+            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
         }
 
         .reveal.active {
@@ -668,14 +848,22 @@
             #home {
                 grid-template-columns: 1fr;
                 text-align: center;
+                min-height: auto;
+                padding-bottom: 4rem;
             }
 
             .hero-content {
                 align-items: center;
             }
 
-            .hero-title {
-                font-size: 4rem;
+            .hero-meta {
+                margin: 0 auto;
+                justify-content: center;
+            }
+
+            .graph-wrap {
+                order: -1;
+                max-width: 340px;
             }
 
             .about-grid {
@@ -696,21 +884,73 @@
         }
 
         @media (max-width: 768px) {
+            section {
+                padding: 5.5rem 6%;
+            }
+
             nav {
-                padding: 1rem 5%;
+                padding: 1rem 6%;
             }
 
             .nav-links {
                 display: none;
             }
 
-            .hero-title {
-                font-size: 3rem;
+            .nav-toggle {
+                display: flex;
+            }
+
+            .mobile-panel {
+                position: fixed;
+                top: 64px;
+                left: 0;
+                right: 0;
+                background: var(--bg-secondary);
+                border-bottom: 1px solid var(--border);
+                padding: 1.5rem 6%;
+                flex-direction: column;
+                gap: 1.2rem;
+                z-index: 999;
+                transform: translateY(-8px);
+                opacity: 0;
+                pointer-events: none;
+                transition: all 0.25s ease;
+            }
+
+            .mobile-panel.open {
+                display: flex;
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: auto;
+            }
+
+            .mobile-panel a {
+                color: var(--text-muted);
+                text-decoration: none;
+                font-weight: 500;
+                font-size: 1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .hero-meta {
+                flex-wrap: wrap;
+                gap: 1.5rem 2.5rem;
             }
 
             .footer-grid {
                 grid-template-columns: 1fr;
                 gap: 2rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
             }
 
             .job-card {
@@ -730,7 +970,7 @@
 
     <nav id="navbar">
         <a href="#home" class="logo">
-            <div class="logo-icon"><i class="fa-solid fa-code"></i></div>
+            <div class="logo-icon"><i class="fa-solid fa-diagram-project"></i></div>
             Vertex
         </a>
         <div class="nav-links">
@@ -741,71 +981,89 @@
             <a href="#careers">Careers</a>
         </div>
         <a href="mailto:contact@vertex.io" class="btn btn-outline"
-            style="padding: 0.5rem 1rem; font-size: 0.85rem;">Contact Us</a>
+            style="padding: 0.55rem 1.2rem; font-size: 0.85rem;">Contact Us</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+        <div class="mobile-panel" id="mobilePanel">
+            <a href="#home">Overview</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#team">Team</a>
+            <a href="#careers">Careers</a>
+            <a href="mailto:contact@vertex.io">Contact Us</a>
+        </div>
     </nav>
 
     <section id="home">
         <div class="hero-content">
-            <div class="badge">Vertex Engineering • Enterprise Software</div>
-            <h1 class="hero-title">Precision software<br>for modern business.</h1>
-            <p class="hero-subtitle">We design and build robust, scalable applications with clean code and
-                uncompromising attention to detail.</p>
+            <div class="eyebrow">Vertex Engineering · Enterprise Software</div>
+            <h1 class="hero-title">Every system is a<br><span class="accent-word">graph of decisions.</span></h1>
+            <p class="hero-subtitle">We design and build robust, scalable applications — mapping every dependency,
+                edge case, and connection so nothing breaks under real-world load.</p>
             <div class="hero-buttons">
                 <a href="#services" class="btn btn-primary">View Services</a>
                 <a href="#about" class="btn btn-outline">Read Our Story</a>
             </div>
+            <div class="hero-meta">
+                <div><span>99.9%</span><small>Uptime guarantee</small></div>
+                <div><span>50ms</span><small>Global edge latency</small></div>
+                <div><span>24/7</span><small>Monitoring &amp; support</small></div>
+            </div>
         </div>
-        <div class="hero-illustration">
-            <!-- Sleek SVG Vector Illustration -->
-            <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- Desk -->
-                <path d="M60 260 H340" stroke="var(--border-hover)" stroke-width="4" stroke-linecap="round" />
-                <!-- Laptop Base & Screen -->
-                <rect x="180" y="220" width="60" height="38" rx="4" fill="var(--bg-secondary)"
-                    stroke="var(--border-hover)" stroke-width="3" />
-                <path d="M160 260 L260 260" stroke="var(--text-muted)" stroke-width="6" stroke-linecap="round" />
-                <!-- Person Head -->
-                <circle cx="120" cy="150" r="25" fill="var(--bg)" stroke="var(--text-main)" stroke-width="4" />
-                <!-- Person Body -->
-                <path d="M100 190 Q120 170 140 190 L140 260 H100 Z" fill="var(--bg-tertiary)" stroke="var(--text-main)"
-                    stroke-width="3" />
-                <!-- Person Arm to Laptop -->
-                <path d="M130 200 Q160 220 180 240" fill="none" stroke="var(--text-muted)" stroke-width="8"
-                    stroke-linecap="round" />
 
-                <!-- Floating Graph UI elements -->
-                <!-- UI Box 1 -->
-                <rect x="250" y="90" width="100" height="80" rx="8" fill="var(--bg-secondary)"
-                    stroke="var(--border-hover)" stroke-width="2" class="float-1" />
-                <path d="M260 150 L280 120 L300 130 L330 100" fill="none" stroke="var(--text-main)" stroke-width="3"
-                    stroke-linecap="round" stroke-linejoin="round" class="float-1" />
-                <circle cx="330" cy="100" r="4" fill="var(--text-main)" class="float-1" />
+        <div class="graph-wrap">
+            <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="edgeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#6c7bff" />
+                        <stop offset="100%" stop-color="#35d0a0" />
+                    </linearGradient>
+                </defs>
 
-                <!-- UI Box 2 -->
-                <rect x="50" y="50" width="80" height="60" rx="8" fill="var(--bg-secondary)"
-                    stroke="var(--border-hover)" stroke-width="2" class="float-2" />
-                <circle cx="90" cy="80" r="15" fill="none" stroke="var(--text-muted)" stroke-width="4"
-                    stroke-dasharray="60" stroke-dashoffset="20" class="float-2 spinner" />
+                <!-- static faint mesh -->
+                <path class="edge-static" d="M60 300 L140 120 L260 90 L340 220 L260 320 L140 120" />
+                <path class="edge-static" d="M140 120 L200 220 L260 320" />
+                <path class="edge-static" d="M60 300 L200 220 L340 220" />
 
-                <!-- Connective lines in background -->
-                <path d="M120 100 L250 130" stroke="var(--border)" stroke-width="2" stroke-dasharray="5 5"
-                    style="z-index:-1" />
+                <!-- animated traveling edges -->
+                <path class="edge" d="M60 300 L140 120 L260 90 L340 220 L260 320 L140 120" style="animation-delay:0s" />
+                <path class="edge" d="M60 300 L200 220 L340 220" style="animation-delay:1.8s" />
+                <path class="edge" d="M140 120 L200 220 L260 320" style="animation-delay:3.4s" />
+
+                <!-- nodes -->
+                <circle class="node" cx="60" cy="300" r="9" />
+                <circle class="node" cx="340" cy="220" r="9" />
+                <circle class="node" cx="200" cy="220" r="7" />
+                <circle class="node" cx="60" cy="300" r="4" fill="var(--text-muted)" />
+
+                <circle class="node-core" cx="140" cy="120" r="6" />
+                <circle class="node-core alt" cx="260" cy="90" r="6" />
+                <circle class="node-core" cx="260" cy="320" r="6" />
             </svg>
         </div>
     </section>
 
     <div class="clients">
-        <div class="logo-ticker">
+        <p class="clients-label">Trusted by teams building on</p>
+        <div class="ticker-track">
             <div class="company-logo"><i class="fa-brands fa-aws"></i> Amazon Web Services</div>
             <div class="company-logo"><i class="fa-brands fa-stripe"></i> Stripe</div>
             <div class="company-logo"><i class="fa-brands fa-github"></i> GitHub</div>
             <div class="company-logo"><i class="fa-brands fa-figma"></i> Figma</div>
+            <div class="company-logo"><i class="fa-brands fa-google"></i> Google Cloud</div>
+            <div class="company-logo"><i class="fa-brands fa-aws"></i> Amazon Web Services</div>
+            <div class="company-logo"><i class="fa-brands fa-stripe"></i> Stripe</div>
+            <div class="company-logo"><i class="fa-brands fa-github"></i> GitHub</div>
+            <div class="company-logo"><i class="fa-brands fa-figma"></i> Figma</div>
+            <div class="company-logo"><i class="fa-brands fa-google"></i> Google Cloud</div>
         </div>
     </div>
 
-    <section id="about" class="reveal">
+    <section id="about">
         <div class="about-grid">
-            <div class="about-content">
+            <div class="about-content reveal">
+                <span class="eyebrow">About Vertex</span>
                 <h2>Engineering excellence.</h2>
                 <p>We are a boutique software agency focused on quality over quantity. Our team of senior engineers
                     leverages industry-standard technologies to deliver maintainable, high-performance systems.</p>
@@ -824,35 +1082,27 @@
                     </div>
                     <div class="stat-item">
                         <h3>24/7</h3>
-                        <p>Monitoring & support</p>
+                        <p>Monitoring &amp; support</p>
                     </div>
                 </div>
             </div>
 
-            <div class="about-image">
-                <!-- Pure CSS Animated Graph -->
-                <div class="animated-graph">
-                    <div class="bar bar-1"></div>
-                    <div class="bar bar-2"></div>
-                    <div class="bar bar-3"></div>
-                    <div class="bar bar-4"></div>
-                    <div class="bar bar-5"></div>
-                    <div class="bar bar-6"></div>
-
-                    <svg class="line-graph-svg" preserveAspectRatio="none" viewBox="0 0 100 100">
-                        <!-- Curved line overlaying the bars -->
-                        <path d="M0 60 Q 20 20, 50 50 T 100 10" fill="none" stroke="var(--text-main)" stroke-width="2"
-                            class="graph-path" stroke-linecap="round" />
-                        <!-- Points on the line -->
-                        <circle cx="50" cy="50" r="2" fill="var(--text-main)" />
-                        <circle cx="100" cy="10" r="2" fill="var(--text-main)" />
-                    </svg>
+            <div class="about-image reveal">
+                <div class="orbit-system">
+                    <div class="orbit-ring"></div>
+                    <div class="orbit-ring r2"></div>
+                    <div class="orbit-ring r3"></div>
+                    <div class="orbit-center"></div>
+                    <div class="orbiter o1"><span></span></div>
+                    <div class="orbiter o2"><span></span></div>
+                    <div class="orbiter o3"><span></span></div>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="services">
+        <span class="eyebrow reveal">What we build</span>
         <h2 class="section-title reveal">Capabilities</h2>
         <p class="section-subtitle reveal">Focused expertise in core engineering disciplines.</p>
 
@@ -878,7 +1128,7 @@
 
             <div class="bento-item large reveal">
                 <div class="service-icon"><i class="fa-solid fa-database"></i></div>
-                <h3>Data & Backend Systems</h3>
+                <h3>Data &amp; Backend Systems</h3>
                 <p>Scalable APIs built with Node.js and Go. Complex database architecture across PostgreSQL and
                     distributed NoSQL systems designed for high throughput.</p>
             </div>
@@ -886,36 +1136,40 @@
     </section>
 
     <section id="team">
+        <span class="eyebrow reveal">The people</span>
         <h2 class="section-title reveal">Leadership</h2>
         <p class="section-subtitle reveal">Built by engineers, for engineers.</p>
 
         <div class="team-grid">
             <div class="team-card reveal">
+                <div class="avatar-ring"><span>SJ</span></div>
                 <div class="team-info">
                     <h3>Sarah Jenkins</h3>
-                    <p>Founder & CEO</p>
+                    <p>Founder &amp; CEO</p>
                     <div class="team-social">
-                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
                     </div>
                 </div>
             </div>
             <div class="team-card reveal">
+                <div class="avatar-ring"><span>DC</span></div>
                 <div class="team-info">
                     <h3>David Chen</h3>
                     <p>Chief Technology Officer</p>
                     <div class="team-social">
-                        <a href="#"><i class="fa-brands fa-github"></i></a>
-                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
                     </div>
                 </div>
             </div>
             <div class="team-card reveal">
+                <div class="avatar-ring"><span>ER</span></div>
                 <div class="team-info">
                     <h3>Elena Rostova</h3>
                     <p>Head of Product</p>
                     <div class="team-social">
-                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
                     </div>
                 </div>
             </div>
@@ -923,6 +1177,7 @@
     </section>
 
     <section id="careers">
+        <span class="eyebrow reveal">Open roles</span>
         <h2 class="section-title reveal">Join Us</h2>
         <p class="section-subtitle reveal">We are looking for exceptional engineers.</p>
 
@@ -930,7 +1185,7 @@
             <a href="#" class="job-card reveal">
                 <div class="job-info">
                     <h3>Senior Backend Engineer</h3>
-                    <div class="job-meta">Go • PostgreSQL • Distributed Systems</div>
+                    <div class="job-meta">Go &nbsp;·&nbsp; PostgreSQL &nbsp;·&nbsp; Distributed Systems</div>
                 </div>
                 <div class="job-arrow"><i class="fa-solid fa-arrow-right"></i></div>
             </a>
@@ -938,7 +1193,7 @@
             <a href="#" class="job-card reveal">
                 <div class="job-info">
                     <h3>Frontend Architect</h3>
-                    <div class="job-meta">React • TypeScript • Performance</div>
+                    <div class="job-meta">React &nbsp;·&nbsp; TypeScript &nbsp;·&nbsp; Performance</div>
                 </div>
                 <div class="job-arrow"><i class="fa-solid fa-arrow-right"></i></div>
             </a>
@@ -949,7 +1204,7 @@
         <div class="footer-grid">
             <div>
                 <a href="#home" class="logo" style="margin-bottom: 1.5rem;">
-                    <div class="logo-icon"><i class="fa-solid fa-code"></i></div>
+                    <div class="logo-icon"><i class="fa-solid fa-diagram-project"></i></div>
                     Vertex
                 </a>
                 <p style="color: var(--text-muted); font-size: 0.9rem; max-width: 250px;">
@@ -973,7 +1228,7 @@
                     <a href="#">Twitter</a>
                     <a href="#">GitHub</a>
                     <a href="#">LinkedIn</a>
-                    <a href="#">Contact</a>
+                    <a href="mailto:contact@vertex.io">Contact</a>
                 </div>
             </div>
         </div>
@@ -981,52 +1236,51 @@
         <div class="footer-bottom">
             <p>&copy; 2026 Vertex Engineering.</p>
             <div style="display: flex; gap: 1.5rem;">
-                <a href="#" style="color: var(--text-muted); text-decoration: none;">Privacy</a>
-                <a href="#" style="color: var(--text-muted); text-decoration: none;">Terms</a>
+                <a href="#" style="color: var(--text-faint); text-decoration: none;">Privacy</a>
+                <a href="#" style="color: var(--text-faint); text-decoration: none;">Terms</a>
             </div>
         </div>
     </footer>
 
     <script>
-        // Navbar Scrolled State
+        // Navbar scrolled state
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 20) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
+            navbar.classList.toggle('scrolled', window.scrollY > 20);
         });
 
-        // Scroll Spy
-        const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('.nav-links a');
+        // Mobile menu toggle
+        const navToggle = document.getElementById('navToggle');
+        const mobilePanel = document.getElementById('mobilePanel');
+        navToggle.addEventListener('click', () => {
+            const isOpen = mobilePanel.classList.toggle('open');
+            navToggle.setAttribute('aria-expanded', isOpen);
+        });
+        mobilePanel.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobilePanel.classList.remove('open');
+                navToggle.setAttribute('aria-expanded', false);
+            });
+        });
 
-        const observerOptions = {
-            root: null,
-            rootMargin: '-30% 0px -70% 0px',
-            threshold: 0
-        };
+        // Scroll spy
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-links a, .mobile-panel a');
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const id = entry.target.getAttribute('id');
-                    if (id) {
-                        navLinks.forEach(link => {
-                            link.classList.remove('active');
-                            if (link.getAttribute('href') === `#${id}`) {
-                                link.classList.add('active');
-                            }
-                        });
-                    }
+                    navLinks.forEach(link => {
+                        link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+                    });
                 }
             });
-        }, observerOptions);
+        }, { root: null, rootMargin: '-30% 0px -60% 0px', threshold: 0 });
 
         sections.forEach(section => observer.observe(section));
 
-        // Subtle Reveal Animations
+        // Reveal on scroll
         const reveals = document.querySelectorAll('.reveal');
         const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -1035,7 +1289,7 @@
                     revealObserver.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.1, rootMargin: "0px 0px -20px 0px" });
+        }, { threshold: 0.1, rootMargin: '0px 0px -20px 0px' });
 
         reveals.forEach(reveal => revealObserver.observe(reveal));
     </script>
