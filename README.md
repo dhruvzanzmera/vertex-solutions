@@ -1,24 +1,24 @@
 # Vertex Solutions
 
-A polished one-page landing site for `Vertex | Professional Software Engineering`, built as a static HTML project with custom inline CSS.
+A responsive one-page landing site for Vertex, built as a static HTML project with custom inline CSS. Its editorial visual system pairs deep forest-green feature panels with warm neutral content surfaces and electric-lime accents.
 
 ## Overview
 
-This project is a dark-themed portfolio-style homepage showcasing a modern hero section, client logos, animated graphs, service cards, and a refined navigation experience.
+This project is an engineering-focused homepage showcasing cloud architecture and autonomous systems through a high-contrast hero, infrastructure dashboards, capability cards, and a refined navigation experience.
 
 ## Features
 
-- Clean, minimal monochrome design
-- Responsive hero section with animations
-- Fixed navigation with scroll behavior
-- Animated illustration and graph elements
-- Service / feature cards with hover effects
+- Responsive editorial layout with dark feature panels and warm neutral sections
+- Fixed navigation with active-section and scroll-progress states
+- Animated infrastructure telemetry and platform marquee
+- Interactive service, technology, FAQ, and careers sections
+- Accessible mobile navigation and reduced-motion support
 
 ## Technologies
 
 - HTML
 - CSS
-- Google Fonts (`Inter`)
+- Google Fonts (`Outfit`, `Plus Jakarta Sans`, `JetBrains Mono`)
 - Font Awesome icons
 
 ## Usage
