@@ -7,6 +7,65 @@
     <title>VERTEX | Enterprise Cloud Engineering & Autonomous Systems</title>
     <meta name="description"
         content="Vertex engineers high-performance cloud architecture, autonomous distributed systems, and mission-critical enterprise platforms with deterministic reliability.">
+    <meta name="keywords"
+        content="enterprise cloud engineering, distributed systems, autonomous systems, Kubernetes consulting, AI infrastructure, microservices, DevOps, cloud architecture">
+    <meta name="author" content="VERTEX Engineering Group">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="theme-color" content="#090b12">
+    <meta name="color-scheme" content="dark">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="VERTEX">
+    <meta property="og:title" content="VERTEX | Enterprise Cloud Engineering & Autonomous Systems">
+    <meta property="og:description"
+        content="We design, build, and deploy resilient distributed software, multi-cloud architectures, and autonomous AI infrastructure for mission-critical enterprises.">
+    <meta property="og:locale" content="en_US">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="VERTEX | Enterprise Cloud Engineering & Autonomous Systems">
+    <meta name="twitter:description"
+        content="Production-grade cloud, distributed systems, and autonomous AI engineering for global enterprises.">
+    <meta name="application-name" content="VERTEX">
+    <link rel="icon" type="image/svg+xml" href="Favicon.svg">
+    <link rel="shortcut icon" type="image/svg+xml" href="Favicon.svg">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Organization",
+                "@id": "#organization",
+                "name": "VERTEX Engineering Group",
+                "description": "Enterprise cloud engineering, autonomous AI, distributed systems, and mission-critical infrastructure consulting.",
+                "email": "contact@vertex.io",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "Favicon.svg"
+                }
+            },
+            {
+                "@type": "WebSite",
+                "@id": "#website",
+                "name": "VERTEX",
+                "description": "Enterprise cloud engineering and autonomous systems.",
+                "publisher": {
+                    "@id": "#organization"
+                },
+                "inLanguage": "en-US"
+            },
+            {
+                "@type": "ProfessionalService",
+                "@id": "#professional-service",
+                "name": "VERTEX Engineering Services",
+                "description": "Cloud architecture, distributed backend engineering, Kubernetes infrastructure, enterprise AI, and edge platform development.",
+                "email": "contact@vertex.io",
+                "provider": {
+                    "@id": "#organization"
+                },
+                "areaServed": "Worldwide"
+            }
+        ]
+    }
+    </script>
 
     <!-- Google Fonts: Outfit, Plus Jakarta Sans, JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,55 +79,52 @@
 
     <style>
         :root {
-            /* Botanical studio palette */
-            --bg-body: #f5f7f0;
-            --bg-surface: rgba(255, 255, 255, 0.9);
-            --bg-card: #ffffff;
-            --bg-card-hover: #f2f6eb;
-            --bg-subtle: rgba(25, 67, 43, 0.045);
-            --bg-elevated: #ffffff;
+            /* Full charcoal and indigo dark palette */
+            --bg-body: #090b12;
+            --bg-surface: rgba(15, 18, 28, 0.94);
+            --bg-card: #11141f;
+            --bg-card-hover: #171b29;
+            --bg-subtle: rgba(148, 163, 184, 0.06);
+            --bg-elevated: #171b29;
 
-            --border-light: rgba(35, 72, 49, 0.12);
-            --border-hover: rgba(42, 103, 64, 0.34);
-            --border-focus: rgba(111, 157, 62, 0.65);
-            --border-glow: rgba(106, 151, 59, 0.2);
+            --border-light: rgba(148, 163, 184, 0.13);
+            --border-hover: rgba(129, 140, 248, 0.38);
+            --border-focus: rgba(129, 140, 248, 0.72);
+            --border-glow: rgba(99, 102, 241, 0.24);
 
-            /* Forest green primary with fresh lime highlights */
-            --primary: #27623e;
-            --primary-dark: #19472d;
-            --primary-light: rgba(39, 98, 62, 0.1);
-            --primary-glow: rgba(69, 126, 71, 0.18);
+            --primary: #818cf8;
+            --primary-dark: #6366f1;
+            --primary-light: rgba(129, 140, 248, 0.12);
+            --primary-glow: rgba(99, 102, 241, 0.28);
 
-            --accent-cyan: #548b4d;
-            --accent-cyan-bg: rgba(84, 139, 77, 0.11);
-            --accent-teal: #3d8058;
-            --accent-teal-bg: rgba(61, 128, 88, 0.11);
-            --accent-violet: #778b45;
-            --accent-violet-bg: rgba(119, 139, 69, 0.12);
-            --accent-emerald: #287349;
-            --accent-emerald-bg: rgba(40, 115, 73, 0.1);
-            --accent-amber: #a77a2a;
-            --accent-amber-bg: rgba(167, 122, 42, 0.11);
+            --accent-cyan: #38bdf8;
+            --accent-cyan-bg: rgba(56, 189, 248, 0.11);
+            --accent-teal: #2dd4bf;
+            --accent-teal-bg: rgba(45, 212, 191, 0.11);
+            --accent-violet: #a78bfa;
+            --accent-violet-bg: rgba(167, 139, 250, 0.12);
+            --accent-emerald: #34d399;
+            --accent-emerald-bg: rgba(52, 211, 153, 0.11);
+            --accent-amber: #fbbf24;
+            --accent-amber-bg: rgba(251, 191, 36, 0.11);
 
-            /* Ink and moss typography */
-            --text-heading: #18291e;
-            --text-body: #526357;
-            --text-muted: #778477;
-            --text-faint: #98a397;
+            --text-heading: #f8fafc;
+            --text-body: #a9b1c1;
+            --text-muted: #7f899c;
+            --text-faint: #667085;
             --text-white: #ffffff;
 
-            /* Soft, earthy gradients and low-contrast elevation */
-            --gradient-brand: linear-gradient(135deg, #214e34 0%, #397a45 58%, #9abe50 100%);
-            --gradient-white: linear-gradient(180deg, #ffffff 0%, #edf2e6 100%);
-            --gradient-accent-text: linear-gradient(120deg, #1b3c29 0%, #347346 62%, #789b3c 100%);
-            --gradient-dark-card: linear-gradient(180deg, rgba(255, 255, 255, 0.86) 0%, rgba(244, 248, 237, 0.95) 100%);
-            --gradient-primary-btn: linear-gradient(135deg, #214e34 0%, #347246 68%, #4a8050 100%);
-            --gradient-primary-btn-hover: linear-gradient(135deg, #173d29 0%, #285f3c 68%, #3f7547 100%);
+            --gradient-brand: linear-gradient(135deg, #4f46e5 0%, #6366f1 55%, #06b6d4 100%);
+            --gradient-white: linear-gradient(180deg, #171b29 0%, #11141f 100%);
+            --gradient-accent-text: linear-gradient(120deg, #ffffff 0%, #a5b4fc 55%, #67e8f9 100%);
+            --gradient-dark-card: linear-gradient(180deg, rgba(23, 27, 41, 0.96) 0%, rgba(15, 18, 28, 0.98) 100%);
+            --gradient-primary-btn: linear-gradient(135deg, #4f46e5 0%, #6366f1 62%, #0ea5e9 100%);
+            --gradient-primary-btn-hover: linear-gradient(135deg, #4338ca 0%, #4f46e5 62%, #0284c7 100%);
 
-            --shadow-subtle: 0 5px 16px rgba(38, 66, 43, 0.06);
-            --shadow-card: 0 12px 32px -16px rgba(31, 66, 41, 0.2), 0 0 0 1px rgba(37, 75, 47, 0.07);
-            --shadow-card-hover: 0 22px 46px -20px rgba(31, 66, 41, 0.27), 0 0 0 1px rgba(87, 129, 66, 0.22);
-            --shadow-elevated: 0 28px 64px -28px rgba(30, 63, 39, 0.24), 0 0 0 1px rgba(37, 75, 47, 0.08);
+            --shadow-subtle: 0 5px 16px rgba(0, 0, 0, 0.22);
+            --shadow-card: 0 14px 38px -18px rgba(0, 0, 0, 0.72), 0 0 0 1px rgba(148, 163, 184, 0.08);
+            --shadow-card-hover: 0 24px 52px -20px rgba(0, 0, 0, 0.88), 0 0 0 1px rgba(129, 140, 248, 0.24);
+            --shadow-elevated: 0 30px 70px -28px rgba(0, 0, 0, 0.82), 0 0 0 1px rgba(148, 163, 184, 0.09);
 
             --radius-sm: 8px;
             --radius-md: 14px;
@@ -372,13 +428,20 @@
             width: 30px;
             height: 30px;
             border-radius: 8px;
-            background: var(--gradient-brand);
             display: flex;
             align-items: center;
             justify-content: center;
             color: #ffffff;
             font-size: 0.85rem;
             box-shadow: 0 0 16px rgba(99, 102, 241, 0.5);
+        }
+
+        .logo-icon-wrap img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: contain;
+            border-radius: inherit;
         }
 
         .nav-menu {
@@ -4422,6 +4485,374 @@
                 font-size: 0.98rem;
             }
         }
+
+        /* Final full-dark presentation: consistent across all sections and components */
+        body {
+            background:
+                radial-gradient(ellipse at 82% 0%, rgba(79, 70, 229, 0.14), transparent 36rem),
+                radial-gradient(ellipse at 8% 42%, rgba(14, 165, 233, 0.07), transparent 32rem),
+                #090b12;
+            color: var(--text-body);
+        }
+
+        html {
+            background: #090b12;
+        }
+
+        .grid-pattern {
+            background-image:
+                linear-gradient(to right, rgba(148, 163, 184, 0.035) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(148, 163, 184, 0.035) 1px, transparent 1px);
+        }
+
+        .ambient-blob {
+            opacity: 0.42;
+        }
+
+        .blob-1 {
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.38) 0%, transparent 72%);
+        }
+
+        .blob-2 {
+            background: radial-gradient(circle, rgba(14, 165, 233, 0.22) 0%, transparent 72%);
+        }
+
+        .blob-3 {
+            background: radial-gradient(circle, rgba(168, 85, 247, 0.22) 0%, transparent 72%);
+        }
+
+        nav,
+        nav.scrolled {
+            background: rgba(9, 11, 18, 0.88);
+            border-color: rgba(148, 163, 184, 0.12);
+            box-shadow: 0 14px 40px rgba(0, 0, 0, 0.58), 0 0 24px rgba(99, 102, 241, 0.08);
+        }
+
+        .logo,
+        .nav-toggle-btn,
+        .mobile-drawer a,
+        .hero-title,
+        .stat-box h4 {
+            color: #f8fafc;
+        }
+
+        .nav-item {
+            color: #a9b1c1;
+        }
+
+        .nav-item:hover,
+        .nav-item.active,
+        .mobile-drawer a:hover,
+        .mobile-close-btn {
+            color: #a5b4fc;
+        }
+
+        .mobile-drawer {
+            background: rgba(9, 11, 18, 0.98);
+        }
+
+        .hero-description,
+        .section-header p,
+        .bento-card-light p,
+        .pipeline-card p,
+        .feature-block p,
+        .arch-description-col > p,
+        .test-body-text,
+        .leader-bio,
+        .faq-body-content,
+        .cta-banner-light p,
+        .footer-brand-info p,
+        .client-meta p,
+        .stack-card-item small {
+            color: #a9b1c1;
+        }
+
+        .badge-pill {
+            color: #c7d2fe;
+            background: rgba(99, 102, 241, 0.1);
+            border-color: rgba(129, 140, 248, 0.24);
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.08);
+        }
+
+        .badge-pulse {
+            background: #34d399;
+            box-shadow: 0 0 0 2px rgba(52, 211, 153, 0.28);
+        }
+
+        .btn-secondary {
+            color: #f1f5f9;
+            background: rgba(255, 255, 255, 0.055);
+            border-color: rgba(255, 255, 255, 0.13);
+        }
+
+        .btn-secondary:hover {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.09);
+            border-color: rgba(129, 140, 248, 0.42);
+        }
+
+        .console-light-window,
+        .topology-card,
+        .glass-floating-card,
+        .bento-card-light,
+        .pipeline-card,
+        .stack-wrapper,
+        .stack-card-item,
+        .leader-card,
+        .testimonial-box,
+        .position-row,
+        .faq-card {
+            background: rgba(17, 20, 31, 0.94);
+            border-color: rgba(148, 163, 184, 0.12);
+            box-shadow: 0 18px 44px -22px rgba(0, 0, 0, 0.92), 0 0 0 1px rgba(148, 163, 184, 0.035);
+        }
+
+        .console-light-window:hover,
+        .bento-card-light:hover,
+        .pipeline-card:hover,
+        .stack-card-item:hover,
+        .leader-card:hover,
+        .testimonial-box:hover,
+        .position-row:hover,
+        .faq-card.active {
+            background: #171b29;
+            border-color: rgba(129, 140, 248, 0.28);
+            box-shadow: 0 24px 52px -22px rgba(0, 0, 0, 0.95), 0 0 0 1px rgba(129, 140, 248, 0.12);
+        }
+
+        .console-header-bar,
+        .telemetry-preview-panel,
+        .cluster-step,
+        .node-tile {
+            background: #0d1019;
+            border-color: rgba(148, 163, 184, 0.11);
+        }
+
+        .console-code-body,
+        .step-label,
+        .node-name,
+        .floating-details h5,
+        .bento-card-light h3,
+        .pipeline-card h3,
+        .leader-card h3,
+        .pos-left h3,
+        .client-meta h4,
+        .feature-block h4,
+        .stack-card-item span,
+        .faq-header-btn,
+        .node-subtext {
+            color: #e7eaf2;
+        }
+
+        .ln,
+        .k-comment {
+            color: #667085;
+        }
+
+        .k-word {
+            color: #c4b5fd;
+        }
+
+        .k-func,
+        .topology-title {
+            color: #818cf8;
+        }
+
+        .k-str,
+        .k-type {
+            color: #67e8f9;
+        }
+
+        .cluster-step.success {
+            background: rgba(52, 211, 153, 0.07);
+            border-color: rgba(52, 211, 153, 0.18);
+        }
+
+        .cluster-step.active {
+            background: rgba(129, 140, 248, 0.08);
+            border-color: rgba(129, 140, 248, 0.22);
+        }
+
+        .telemetry-header,
+        .telemetry-banner,
+        .node-pill,
+        .step-val,
+        .floating-details p {
+            color: #9ca3af;
+        }
+
+        .floating-icon-circle,
+        .service-icon-wrapper,
+        .feature-icon-badge,
+        .leader-avatar-circle,
+        .client-avatar {
+            background: rgba(129, 140, 248, 0.1) !important;
+            color: #a5b4fc !important;
+            border-color: rgba(129, 140, 248, 0.2) !important;
+        }
+
+        .marquee-section {
+            background: rgba(13, 16, 25, 0.72);
+            border-color: rgba(148, 163, 184, 0.1);
+        }
+
+        .marquee-heading,
+        .brand-pill,
+        .chip,
+        .filter-tab,
+        .pos-badge,
+        .pos-tags,
+        .pos-tags > span {
+            color: #b0b7c7;
+        }
+
+        .brand-pill,
+        .chip,
+        .filter-tab,
+        .pos-badge,
+        .pos-tags > span:not(.pos-badge) {
+            background: rgba(255, 255, 255, 0.035);
+            border-color: rgba(148, 163, 184, 0.11);
+        }
+
+        .brand-pill:hover,
+        .chip:hover,
+        .filter-tab:hover,
+        .filter-tab.active {
+            color: #ffffff;
+            background: rgba(99, 102, 241, 0.18);
+            border-color: rgba(129, 140, 248, 0.32);
+        }
+
+        .filter-tab.active {
+            background: var(--gradient-brand);
+        }
+
+        .node-track,
+        .pos-arrow-icon {
+            background: rgba(148, 163, 184, 0.08);
+        }
+
+        .node-fill {
+            background: linear-gradient(90deg, #6366f1, #38bdf8) !important;
+        }
+
+        .telemetry-banner,
+        .client-profile-row {
+            background: rgba(255, 255, 255, 0.025);
+            border-color: rgba(148, 163, 184, 0.1);
+        }
+
+        .leader-role,
+        .test-stat-badge,
+        .step-index-badge,
+        .text-gradient {
+            color: #a5b4fc;
+        }
+
+        .leader-links a,
+        .footer-social-icons a,
+        .footer-links-column a,
+        .footer-sub-links a {
+            color: #8f98aa;
+        }
+
+        .leader-links a:hover,
+        .footer-social-icons a:hover,
+        .footer-links-column a:hover,
+        .footer-sub-links a:hover {
+            color: #c7d2fe;
+        }
+
+        .position-row:hover {
+            background: #171b29;
+        }
+
+        .pos-arrow-icon {
+            color: #a9b1c1;
+            border-color: rgba(148, 163, 184, 0.12);
+        }
+
+        .position-row:hover .pos-arrow-icon {
+            color: #ffffff;
+            background: #6366f1;
+            border-color: #818cf8;
+            box-shadow: 0 8px 22px rgba(99, 102, 241, 0.32);
+        }
+
+        .faq-header-btn:hover,
+        .faq-card.active .faq-chevron {
+            color: #a5b4fc;
+        }
+
+        .faq-chevron {
+            color: #7f899c;
+        }
+
+        .cta-outer-container {
+            background: transparent;
+        }
+
+        .cta-banner-light {
+            background:
+                radial-gradient(ellipse at 82% 0%, rgba(99, 102, 241, 0.28), transparent 34rem),
+                linear-gradient(135deg, #111827 0%, #15182a 58%, #111827 100%);
+            border-color: rgba(129, 140, 248, 0.22);
+            box-shadow: 0 30px 70px -28px rgba(0, 0, 0, 0.9);
+        }
+
+        .cta-banner-light h2 {
+            color: #f8fafc;
+        }
+
+        .cta-text-field {
+            color: #f8fafc;
+            background: rgba(9, 11, 18, 0.72);
+            border-color: rgba(148, 163, 184, 0.16);
+        }
+
+        .cta-text-field::placeholder {
+            color: #7f899c;
+        }
+
+        .cta-text-field:focus {
+            border-color: rgba(129, 140, 248, 0.58);
+            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.12);
+        }
+
+        footer {
+            background: #070912;
+            border-top: 1px solid rgba(148, 163, 184, 0.09);
+        }
+
+        .footer-col h4,
+        .footer-legal-bar {
+            color: #e7eaf2;
+        }
+
+        .footer-social-icons a {
+            background: rgba(255, 255, 255, 0.035);
+            border-color: rgba(148, 163, 184, 0.1);
+        }
+
+        .footer-legal-bar {
+            border-top-color: rgba(148, 163, 184, 0.1);
+        }
+
+        #careers .pos-tags,
+        #careers .pos-tags > span,
+        #careers .pos-badge,
+        #careers .pos-arrow-icon {
+            color: #b0b7c7;
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(148, 163, 184, 0.12);
+        }
+
+        #careers .position-row:hover .pos-arrow-icon {
+            color: #ffffff;
+            background: #6366f1;
+            border-color: #818cf8;
+        }
     </style>
 </head>
 
@@ -4443,7 +4874,7 @@
     <!-- Navigation Header -->
     <nav id="navbar">
         <a href="#hero" class="logo">
-            <div class="logo-icon-wrap"><i class="fa-solid fa-shapes"></i></div>
+            <div class="logo-icon-wrap"><img src="Favicon.svg" alt="" width="30" height="30"></div>
             <span>VERTEX</span>
         </a>
 
@@ -5280,7 +5711,7 @@
         <div class="footer-columns-wrap">
             <div class="footer-brand-info">
                 <a href="#hero" class="logo">
-                    <div class="logo-icon-wrap"><i class="fa-solid fa-shapes"></i></div>
+                    <div class="logo-icon-wrap"><img src="Favicon.svg" alt="" width="30" height="30"></div>
                     <span>VERTEX</span>
                 </a>
                 <p>
