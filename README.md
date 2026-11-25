@@ -1,23 +1,25 @@
-# Vertex Solutions
+﻿# Vertex Solutions
 
-A responsive one-page landing site for Vertex, built as a static HTML project with custom inline CSS. Its editorial visual system pairs deep forest-green feature panels with warm neutral content surfaces and electric-lime accents.
+A premium single-page landing site for Vertex, built as a static HTML project with embedded CSS and JavaScript. The redesign features a cinematic dark interface, aurora gradients, glass surfaces, and refined motion for an enterprise engineering brand.
 
 ## Overview
 
-This project is an engineering-focused homepage showcasing cloud architecture and autonomous systems through a high-contrast hero, infrastructure dashboards, capability cards, and a refined navigation experience.
+The site presents Vertex as an enterprise cloud engineering and autonomous systems company. It includes a high-impact hero, capability bento grid, architecture topology, engineering lifecycle, technology stack filter, leadership, testimonials, careers, FAQ, and contact CTA.
 
 ## Features
 
-- Responsive editorial layout with dark feature panels and warm neutral sections
-- Fixed navigation with active-section and scroll-progress states
-- Animated infrastructure telemetry and platform marquee
-- Interactive service, technology, FAQ, and careers sections
-- Accessible mobile navigation and reduced-motion support
+- Modern dark visual system with aurora background, glass cards, and gradient typography
+- Responsive navigation with scroll progress, active-section tracking, and mobile drawer
+- Animated hero console and infrastructure telemetry visuals
+- Interactive technology filter and accessible FAQ accordion
+- Scroll-reveal motion with reduced-motion support
+- SEO metadata, Open Graph/Twitter cards, and JSON-LD structured data
 
 ## Technologies
 
 - HTML
 - CSS
+- Vanilla JavaScript
 - Google Fonts (`Outfit`, `Plus Jakarta Sans`, `JetBrains Mono`)
 - Font Awesome icons
 
@@ -26,11 +28,8 @@ This project is an engineering-focused homepage showcasing cloud architecture an
 1. Open `index.html` in a web browser.
 2. No build tools or external dependencies are required.
 
-## File
+## Files
 
-- `index.html` — main landing page with embedded styles and page content.
-
-## Notes
-
-- The project is static and ready for deployment on any static hosting service.
-- External assets are loaded from CDN for fonts and icons.
+- `index.html` - main landing page with embedded styles, content, and scripts
+- `Favicon.svg` - site icon
+- `robots.txt` - crawler directives
